@@ -14,15 +14,13 @@ app.use(cors())
 const body = require('body-parser')
 app.use(express.json())
 
-// const users = require('./router/usersRouter')
-// const commande = require('./router/commandeRouter')
-// const plat = require('./router/platRouter')
-// app.use('/resto/users',users)
-// app.use('/resto/commande',commande)
-// app.use('/resto/plat',plat)
 
 const publication = require('./Publications/route')
+const rdv = require('./Rendez-vous/route')
+
 app.use('/app/publication',publication)
+app.use('/app/rendez-vous',rdv)
+
 
 //  Config server
 app.listen(PORT,(err)=>{

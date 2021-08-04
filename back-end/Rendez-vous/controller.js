@@ -1,13 +1,13 @@
 
 
 
-PUBLICATION=require('./Model')
+RDV=require('./Model')
 module.exports={
-    //get All publication
-    getPublication:async(req,res)=>{
+    //get All rdv
+    getRdv:async(req,res)=>{
       try {
-        const publication = await PUBLICATION.find();
-        res.json(publication);
+        const rdv = await RDV.find();
+        res.json(rdv);
     }
     catch (error) {
         console.error(error.message);
@@ -15,8 +15,8 @@ module.exports={
       }
     },
 
-    // add new publication
-    addPublication: async (req, res) => {
+    // add new rdv
+    addRdv: async (req, res) => {
       const date = req.body.date
       const titre = req.body.titre
       const texte = req.body.texte
@@ -24,39 +24,39 @@ module.exports={
 
     
       try {
-        publication = new PUBLICATION({
+        rdv = new RDV({
           date,
           titre,
           texte,
           auteur
         });
-        await publication.save();
-        res.json(publication);
+        await rdv.save();
+        res.json(rdv);
       } catch (error) {
         console.error(error.message);
         res.status(500).send("server error");
       }        },
     
 
-      //update publication
-      updatePublication:async(req,res)=>{
+      //update rdv
+      updateRdv:async(req,res)=>{
         try {
-          const publication = await PUBLICATION.findByIdAndUpdate(
+          const rdv = await RDV.findByIdAndUpdate(
             req.params.id,
             req.body,
             { new: true }
           );
-          res.json(publication);
+          res.json(rdv);
         } catch (error) {
           console.error(error.message);
         }
     },
 
-      //delete publication
-      deletePublication:async(req,res)=>{
+      //delete rdv
+      deleteRdv:async(req,res)=>{
         try{
-          const publication = await PUBLICATION.findByIdAndDelete(req.params.id)
-        res.json(publication)
+          const rdv = await RDV.findByIdAndDelete(req.params.id)
+        res.json(rdv)
         } catch (error) {
           console.error(error.message);
           res.status(500).send("server error");
