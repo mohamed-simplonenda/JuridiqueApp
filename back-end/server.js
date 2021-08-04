@@ -21,6 +21,9 @@ app.use(express.json())
 // app.use('/resto/commande',commande)
 // app.use('/resto/plat',plat)
 
+const publication = require('./Publications/route')
+app.use('/app/publication',publication)
+
 //  Config server
 app.listen(PORT,(err)=>{
     if(err){
