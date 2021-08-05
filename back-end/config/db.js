@@ -11,5 +11,5 @@ const db_connection = () =>{
  .then(() =>{ console.log('data_base connected')})
     .catch(()=>{console.log('error connexion data_base')})
 
-} 
+} ()
 module.exports = db_connection

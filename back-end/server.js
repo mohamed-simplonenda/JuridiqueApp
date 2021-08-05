@@ -17,9 +17,11 @@ app.use(express.json())
 
 const publication = require('./Publications/route')
 const rdv = require('./Rendez-vous/route')
+const users = require('./users/route')
 
 app.use('/app/publication',publication)
 app.use('/app/rendez-vous',rdv)
+app.use('/app/users',users)
 
 
 //  Config server
